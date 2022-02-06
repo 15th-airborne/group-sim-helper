@@ -28,6 +28,33 @@ function gacha_calculator(g, p, z, a, w, cache={}) {
     return result
 }
 
+function gacha_calc_p(g, p, cache={}) {
+    const limit = 100007;
+    if (p >= limit) {
+        throw "too big"
+    }
+
+    if (g < 100) {
+        return 0
+    }
+
+    const key = g * limit + p
+
+    if (cache[key] !== undefined) {
+        return cache[key]
+    }
+
+    result = 0.01 +
+             0.1 * gacha_calc_p(g - 100 + Math.floor(0.05 * (p + 80)), p + 80 - Math.floor(0.05 * (p + 80)), cache) +
+             0.49 * gacha_calc_p(g - 100 + Math.floor(0.01 * (p + 80)), p + 80 - Math.floor(0.01 * (p + 80)), cache) +
+             0.4 * gacha_calc_p(g - 100, p + 80, cache)
+
+    cache[key] = result
+
+    return result
+}
+
+
 function gacha_handler() {
     let a = 0
     if (document.querySelector('#gacha-a').checked) {
@@ -51,6 +78,7 @@ function gacha_handler() {
     document.querySelector('#gacha-result-w-q1-bread').textContent = w.q1_bread
     document.querySelector('#gacha-result-e').textContent = e
     document.querySelector('#gacha-result-r').textContent = e - g
+    document.querySelector('#gacha-result-p').textContent = gacha_calc_p(g, p) * 100 + '%'
 }
 
 document.querySelector('#gacha-a').addEventListener('change', gacha_handler)
