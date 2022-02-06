@@ -50,6 +50,7 @@ function gacha_handler() {
     document.querySelector('#gacha-result-w-q1-gun').textContent = w.q1_gun
     document.querySelector('#gacha-result-w-q1-bread').textContent = w.q1_bread
     document.querySelector('#gacha-result-e').textContent = e
+    document.querySelector('#gacha-result-r').textContent = e - g
 }
 
 document.querySelector('#gacha-a').addEventListener('change', gacha_handler)
