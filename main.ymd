@@ -1,8 +1,8 @@
-[mixin] @std/vue
+[mixin] vue
 
 [title]: 群sim助手
 
-[require](@std/assets/katex.css)
+[mixin] assets/katex.css
 
 [h2] 群sim助手
 
@@ -69,7 +69,9 @@ w&:~~\text{物资价值参数}\\
 <div>
 <input type="checkbox" id="gacha-a"><label for="gacha-a">中全奖后继续抽</label>
 </div><div>
-<input type="checkbox" id="gacha-w" checked><label for="gacha-w">物资折算成价格</label>
+<input type="checkbox" id="gacha-w-gun" checked><label for="gacha-w-gun">枪折算成价格</label>
+</div><div>
+<input type="checkbox" id="gacha-w-bread" checked><label for="gacha-w-bread">面包折算成价格</label>
 </div><div>
 <label for="gacha-g">起始资金 [$]g$ = </label><input type="number" id="gacha-g" value="1000">
 </div><div>

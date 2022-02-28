@@ -57,14 +57,14 @@ function gacha_calc_p(g, p, cache={}) {
 
 function gacha_handler() {
     let a = 0
-    if (document.querySelector('#gacha-a').checked) {
+    if (document.querySelector('#gacha-a').checked)
         a = 1
-    }
 
     let w = { q5_gun: 0, q5_bread: 0, q1_gun: 0, q1_bread: 0 }
-    if (document.querySelector('#gacha-w').checked) {
-        w = { q5_gun: 10, q5_bread: 50, q1_gun: 1, q1_bread: 5 }
-    }
+    if (document.querySelector('#gacha-w-gun').checked)
+        w = { ...w, q5_gun: 50, q1_gun: 5 }
+    if (document.querySelector('#gacha-w-bread').checked)
+        w = { ...w, q5_bread: 50, q1_bread: 5 }
 
     const g = parseInt(document.querySelector('#gacha-g').value)
     const p = parseInt(document.querySelector('#gacha-p').value)
@@ -82,7 +82,8 @@ function gacha_handler() {
 }
 
 document.querySelector('#gacha-a').addEventListener('change', gacha_handler)
-document.querySelector('#gacha-w').addEventListener('change', gacha_handler)
+document.querySelector('#gacha-w-gun').addEventListener('change', gacha_handler)
+document.querySelector('#gacha-w-bread').addEventListener('change', gacha_handler)
 document.querySelector('#gacha-g').addEventListener('change', gacha_handler)
 document.querySelector('#gacha-p').addEventListener('change', gacha_handler)
 gacha_handler()
