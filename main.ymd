@@ -67,15 +67,17 @@ w&:~~\text{物资价值参数}\\
 [h3] 抽奖计算器
 
 <div>
+<input type="checkbox" id="approx" checked><label for="approx">快速估算</label>
+</div><div>
 <input type="checkbox" id="gacha-a"><label for="gacha-a">中全奖后继续抽</label>
 </div><div>
-<input type="checkbox" id="gacha-w-gun" checked><label for="gacha-w-gun">枪折算成价格</label>
+<input type="checkbox" id="gacha-w-gun"><label for="gacha-w-gun">枪折算成价格</label>
 </div><div>
-<input type="checkbox" id="gacha-w-bread" checked><label for="gacha-w-bread">面包折算成价格</label>
+<input type="checkbox" id="gacha-w-bread"><label for="gacha-w-bread">面包折算成价格</label>
 </div><div>
-<label for="gacha-g">起始资金 [$]g$ = </label><input type="number" id="gacha-g" value="1000">
+<label for="gacha-g">起始资金 [$]g$ = </label><input type="number" id="gacha-g" value="8000">
 </div><div>
-<label for="gacha-p">奖池 [$]p$ = </label><input type="number" id="gacha-p" value="800">
+<label for="gacha-p">奖池 [$]p$ = </label><input type="number" id="gacha-p" value="4000">
 </div>
 
 <div>
@@ -90,5 +92,9 @@ w&:~~\text{物资价值参数}\\
 </div>
 
 <div style="width:1px;height:40px"/>
+
+<script>
+window.lookup_table = JSON.parse(`[require](lookup_table.json)`)
+</script>
 
 [require](main.js)
