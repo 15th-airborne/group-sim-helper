@@ -52,7 +52,10 @@ function lookup(g, p) {
     const lookup_limit = 40000
 
     if (p >= limit || g >= lookup_limit || p >= lookup_limit)
-        return [g + p - 2000, 1]
+        if (g >= 1000)
+            return [g + p - 2000, 1]
+        else
+            alert("cannot estimate")
 
     const g_lower = Math.floor(g / 200) * 200
     const g_upper = Math.floor(g / 200 + 1) * 200
